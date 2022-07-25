@@ -69,7 +69,7 @@ class Rest extends PluginBase
     {
         $model = ucfirst(htmlentities($_GET['model']));
         if (!class_exists($model)) {
-            throw new Exception('No such model exists: ' . $model);
+            throw new CHttpException(400, 'No such model exists: ' . $model);
         }
         $id = (int) $_GET['id'];
 
